@@ -4,7 +4,7 @@
 		public static function connect(){
 			$database = 'acme'; 	//nombre base de datos
 			$user = 'root';			//usuario
-			$key = 'admin';				//contraseña
+			$key = '';				//contraseña
 			$server = 'localhost';	//servidor
 			try {
 				$conexion = new PDO('mysql::host='.$server.'; dbname='.$database, $user, $key);
