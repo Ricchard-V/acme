@@ -8,9 +8,11 @@
 				<div>
 					<a href="index.php?p=index">Ver Propietarios</a>
 					<a href="index.php?v=create">Ver Conductores</a>
+					
 				</div>
 				
 			</div>
+			<a href="index.php?v=excel">Descargar</a>
 			<table border="solid">
 				<tr>
 					<td>placa</td>

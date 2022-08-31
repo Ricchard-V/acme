@@ -62,4 +62,18 @@ class indexController
 
 		require_once('views/vehiculos/show.php');
 	}
+
+		static function excel(){
+		$inner ="select vehiculos.*,
+				conductor.Nombre AS c_nombre, conductor.Nombre_2 AS c_nombre2, conductor.apellidos AS c_apellidos ,
+				propietario.Nombre AS p_nombre, propietario.Nombre_2 AS p_nombre2, conductor.apellidos AS p_apellidos
+			FROM vehiculos
+			INNER JOIN conductor ON conductor.id = vehiculos.conductor_id
+			INNER JOIN propietario ON propietario.id = vehiculos.propietario_id";
+		$con = new Consulta;
+		$dato = $con->inner($inner); // funcion para realizar consultas personalizadas , necesita el script sql completo
+		require_once('views/excel.php');
+	}
+
+
 }
