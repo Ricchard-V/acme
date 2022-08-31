@@ -1,9 +1,16 @@
-<html>
-	<head></head>
-	<body>
-		<header></header>
+<?php include('views/_layout.php') // Plantilla superior?>
 		<main>
-			<a href="index.php?v=create">Nuevo vehiculo</a>
+			<h2>Vehiculos</h2>
+			<hr>
+			<div class="navbar">
+					<a href="index.php?v=create">Nuevo vehiculo</a>
+
+				<div>
+					<a href="index.php?p=index">Ver Propietarios</a>
+					<a href="index.php?v=create">Ver Conductores</a>
+				</div>
+				
+			</div>
 			<table border="solid">
 				<tr>
 					<td>placa</td>
@@ -15,6 +22,7 @@
 
 				</tr>
 				<?php
+				
 				if(!empty($dato)):
 					foreach($dato as $key => $vehiculo):?>
 						<tr>
@@ -35,6 +43,3 @@
 				<?php endif ?>
 			</table>
 		</main>
-		<footer></footer>
-	</body>
-</html>

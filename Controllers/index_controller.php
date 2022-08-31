@@ -17,12 +17,13 @@ class indexController
 			INNER JOIN conductor ON conductor.id = vehiculos.conductor_id
 			INNER JOIN propietario ON propietario.id = vehiculos.propietario_id";
 		$con = new Consulta;
-		$dato = $con->inner($inner);
+		$dato = $con->inner($inner); // funcion para realizar consultas personalizadas , necesita el script sql completo
 		require_once('views/vehiculos/index.php');
 	}
 
 
 	static function create(){
+		// se listan los propietarios y conducores para utilizar en lista desplegable
 		$conductores = new Consulta;
 		$propietarios = new Consulta;
 
@@ -33,17 +34,16 @@ class indexController
 	}
 
 	static function store(){
-
 		$placa = $_POST['placa'];//String
 		$color = $_POST['color'];//String
 		$marca = $_POST['marca'];//String
 		$tipo = $_POST['tipo'];//String
 		$propietario = $_POST['propietario'];//Int
 		$conductor = $_POST['conductor'];//Int
-		$data = "'".$placa."' , '".$color."' , '".$marca."' , '".$tipo."', " .$conductor." , ".$propietario ;
+		$data = "'".$placa."' , '".$color."' , '".$marca."' , '".$tipo."', " .$conductor." , ".$propietario ; //script a base de datos
 
 		$con = new Consulta;
-		$con = $con->store('vehiculos',$data);
+		$con = $con->store('vehiculos',$data); //funcion para crear nuevos registros necesita nombre de la tabla y datos
 		header("location:/");
 	}
 	
@@ -51,7 +51,7 @@ class indexController
 	static function show($id){
 		
 		$con = new Consulta;
-		$dato = $con->show('vehiculos',$id);
+		$dato = $con->show('vehiculos',$id); //funcion para ver datos especificos de una tabla , necesita tabla y el id 
 		
 		//consultas de detalle de conductor y proveedor
 		$conductores = new Consulta;
